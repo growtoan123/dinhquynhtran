@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,300;1,400&display=swap");
+
+html {
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* .page__main {
+    /* Ảnh nền của trang đầu tiên nếu bạn muốn đổi thì đổi tại đây */
+    background-image: url("../img/");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position-y: -18rem;
+    background-position: center; 
+    width: 100%; 
+    height: 100vh;  
+} */
+.page__main {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;  
+    overflow: hidden; /* Hides overflow */
+}
+
+.page__main {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;  
+    overflow: hidden; /* Ẩn phần video vượt ra ngoài */
+}
+
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%; /* Đảm bảo video phủ toàn bộ khung */
+    width: 100vw; /* Thay đổi thành 100vw */
+    height: auto; /* Để chiều cao tự động */
+    z-index: -1; /* Đặt video ở phía sau nội dung khác */
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Giúp video giữ tỷ lệ khung hình */
+}
+
+/* Đảm bảo video không bị cắt xén */
+@media (min-aspect-ratio: 16/9) {
+    .background-video {
+        height: 100vh; /* Đặt chiều cao bằng chiều cao viewport */
+        width: auto; /* Để chiều rộng tự động */
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .background-video {
+        height: auto; /* Để chiều cao tự động */
+        width: 100vw; /* Đặt chiều rộng bằng chiều rộng viewport */
+    }
+}
+
+
+
+
+
+.buttons {
+    
+    
+    font-weight: bold;
+    display: flex;
+    column-gap: 3rem;
+    padding: 2rem;
+    cursor: pointer; /* Đổi con trỏ thành pointer khi di chuột */
+    color: white; /* Màu chữ */
+    border: none; /* Loại bỏ viền */
+    border-radius: 1em; /* Bo góc */
+
+    position: fixed; /* Đặt vị trí cố định */
+    top: 0; /* Đặt phần tử ở phía trên cùng */
+    left: 50%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Căn giữa hoàn toàn */
+    z-index: 1; /* Đảm bảo phần tử này nằm trên các phần tử khác */
+}
+
+
+
+.btnr-bir:hover {
+    background-position: right center;
+    color: #000000;
+    text-decoration: none;
+}
+
+.btnr-bir {
+    background-image: linear-gradient(
+        to right,
+        #ff0000 0%,  /* Đỏ */
+        #ff7f7f 51%,  /* Đỏ nhạt */
+        #ff0000 100%   /* Đỏ */
+    );
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btnr-timeline {
+    background-image: linear-gradient(
+        to right,
+        #ff7f00 0%,  /* Cam */
+        #ffb84d 51%,  /* Cam nhạt */
+        #ff7f00 100%   /* Cam */
+    );
+}
+.btnr-timeline {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btnr-timeline:hover {
+    background-position: right center; 
+    color: #000000;
+    text-decoration: none;
+}
+
+
+.btnr-gallery {
+    background-image: linear-gradient(
+        to right,
+        #ffff00 0%,  /* Vàng */
+        #ffff7f 51%,  /* Vàng nhạt */
+        #ffff00 100%   /* Vàng */
+    );
+}
+.btnr-gallery {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+
+.btnr-gallery:hover {
+    background-position: right; /* change the direction of the change here */
+    color: #000000;
+    text-decoration: none;
+}
+
+.cover {
+    width: 240px;
+    height: 240px;
+   
+    box-shadow: 0 0 30px #eee;
+    position: absolute;
+    margin-top: 3rem;
+    left: calc(50% - 100px);
+  
+    border-radius: 120px;
+    border: 5px solid rgb(255, 17, 0);
+}
+.btnr-video {
+    background-image: linear-gradient(
+        to right,
+        #00ff00 0%,  /* Xanh lá */
+        #7fff7f 51%,  /* Xanh lá nhạt */
+        #00ff00 100%   /* Xanh lá */
+    );
+}
+
+
+
+.btnr-video {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btnr-video:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000000;
+    text-decoration: none;
+}
+
+
+.cover {
+    width: 240px;
+    height: 240px;
+   
+    box-shadow: 0 0 30px #eee;
+    position: absolute;
+    /* margin-top: 3rem; */
+    left: calc(50% - 100px);
+  
+    /* border-radius: 120px; */
+    border: 5px solid rgb(255, 17, 0);
+}
+.btnr-christmas {
+    background-image: linear-gradient(
+        to right,
+        #00ffff 0%,  /* Xanh nước */
+        #80ffff 51%,  /* Xanh nước nhạt */
+        #00ffff 100% 
+    );
+}
+
+
+
+.btnr-christmas {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btnr-christmas:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000000;
+    text-decoration: none;
+}
+.cover {
+    width: 240px;
+    height: 240px;
+   
+    box-shadow: 0 0 30px #eee;
+    position: absolute;
+    margin-top: 3rem;
+    left: calc(50% - 100px);
+  
+    border-radius: 120px;
+    border: 5px solid rgb(255, 17, 0);
+}
+.btnr-tree {
+    background-image: linear-gradient(
+        to right,
+        #0000ff 0%,  /* Xanh dương */
+        #7f7fff 51%,  /* Xanh dương nhạt */
+        #0000ff 100%   /* Xanh dương */
+    );
+}
+
+
+
+.btnr-tree {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btnr-tree:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000000;
+    text-decoration: none;
+}
+
+.cover {
+    width: 240px;
+    height: 240px;
+   
+    box-shadow: 0 0 30px #eee;
+    position: absolute;
+    margin-top: 3rem;
+    left: calc(50% - 100px);
+  
+    border-radius: 120px;
+    border: 5px solid rgb(255, 17, 0);
+}
+
+.btnr-confess {
+    background-image: linear-gradient(
+        to right,
+        #800080 0%,  /* Tím đậm */
+        #d8bfd8 51%,  /* Tím nhạt */
+        #800080 100% 
+    );
+}
+
+
+
+.btnr-confess {
+    z-index: 1;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btnr-confess:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000000;
+    text-decoration: none;
+}
+
+.cover {
+    width: 240px;
+    height: 240px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    margin-top: 12rem;
+    left: calc(50% - 120px);
+    
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 17, 0, 0.6), rgba(255, 255, 255, 0.8));
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50%;
+    border: 5px solid transparent; /* Viền trong suốt */
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.8), rgba(255, 17, 0, 0.8)); /* Viền gradient */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6); /* Ánh sáng cho viền */
+    z-index: -1;
+}
+
+.cover::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, 0.2); /* Viền màu tối */
+    z-index: -2;
+}
+
+.cover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 60px rgba(0, 0, 0, 0.3);
+    animation: pulse 1s infinite; /* Thêm hiệu ứng nhấp nháy */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+
+
+

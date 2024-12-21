@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="icon" type="image/png" href="./img/CILKGax.png" />
+        <!-- Tiêu đề của trang ảnh kĩ niệm -->
+        <title>Video của em</title>
+        <link rel="stylesheet" href="./css/video.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="buttons">
+
+            <!-- Chữ ở menu bạn có thể sửa lại theo ý của bạn -->
+            <a href="index.html" class="btnr btnr-bir ">Home</a>
+            <a href="timeline.html" class="btnr btnr-timeline">Times</a>
+            <a href="gallery.html" class="btnr btnr-gallery">Images</a>
+            <a href="video.html" class="btnr btnr-video ">Videos</a>
+            <a href="index4.html" class="btnr btnr-christmas ">Christmas</a>
+            <a href="index3.html" class="btnr btnr-tree">Trees</a>
+            <a href="index2.html" class="btnr btnr-confess">Final</a>
+        </div>   
+
+
+        <!-- 6. Thay tất cả bằng hình ảnh của bạn -->
+        <div class="video" id="video">
+            <div class="video-item">
+                <div class="content">
+                    <video controls>
+                        <source src="./video/saochuanamtaynhau.mp4" type="video/mp4"></div>
+            </div> 
+            <div class="video-item">
+                <div class="content">
+                    <video controls>
+                        <source src="./video/cogaivang_final2.mp4" type="video/mp4"></div>
+            </div>
+            <div class="video-item">
+                <div class="content">
+                    <video controls>
+                        <source src="./video/moshimoshi.mp4" type="video/mp4"></div>
+            </div>
+            <div class="video-item">
+                <div class="content">
+                    <video controls>
+                        <source src="./video/tranbonho_new.mp4" type="video/mp4"></div>
+            </div>
+            <div class="video-item">
+                <div class="content">
+                    <video controls>
+                        <source src="./video/chamhoa.mp4" type="video/mp4"></div>
+            </div>
+        </div>
+        
+        <!-- Phần nhạc -->
+        <audio id="player" autoplay loop>
+            <source src="./music/" type="audio/mp3" />
+        </audio>
+        <div class="snow"></div>
+        
+    </body>
+    <script>
+        const videos = document.querySelectorAll('video');
+        const audioPlayer = document.getElementById('player');
+
+        videos.forEach(video => {
+            video.addEventListener('play', () => {
+                audioPlayer.pause();// Tắt nhạc nền khi video phát
+
+            videos.forEach(otherVideo => {
+                if (otherVideo !== video) {
+                otherVideo.pause(); // Dừng video khác
+                }
+            }); 
+            });
+
+            video.addEventListener('pause', () => {
+        // Nếu không còn video nào đang phát, bật lại nhạc nền
+            if (![...videos].some(v => !v.paused)) {
+            audioPlayer.play();
+            }
+            });
+
+            video.addEventListener('ended', () => {
+        // Bật lại nhạc nền khi video kết thúc
+            audioPlayer.play();
+            });
+            
+        });
+    </script>
+    <script src="./js/video.js"></script>
+</html>
